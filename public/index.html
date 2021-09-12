@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Some Random Pic of Cody Jasmine</title>
+    <link rel="icon" href="https://bit.ly/3nqC8YW">
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@100&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Urbanist', sans-serif;
+        }
+        html,body{
+            background-color: #161616;
+        }
+        h1,h4{
+            color: white;
+        }
+        ul {
+           list-style-type: none;
+           margin: 0;
+           padding: 0;
+       }
+
+    li {
+       display: inline;
+    }
+       header{
+           display: flex;
+           justify-content: center;
+           align-items: center;
+       }
+       .img{
+        position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 1px 2px 0 rgba(241, 239, 239, 0.2), 0 1.5px 5px 0 rgba(252, 246, 246, 0.19);
+    }
+       
+nav{
+    background-color: #606d79;
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    box-shadow: 0 1px 2px 0 rgba(241, 239, 239, 0.2), 0 1.5px 5px 0 rgba(252, 246, 246, 0.19);
+
+}
+a{
+    color: black;
+    font-size: 25px;
+    text-decoration: none;
+}
+nav div{
+    padding: 15px;
+
+}
+nav div:hover {
+    background-color: #1c1c1c;
+
+}
+a {
+    margin: 0 auto;
+}
+div:nth-child(1){
+  grid-column: 2;
+}
+div:nth-child(2){
+    grid-column: 6;
+}
+div:nth-child(3){
+    grid-column: 7;
+    font-size: 70%;
+}
+
+
+
+    </style>
+    
+</head>
+<body>
+    <nav>
+        <div><a href="/">Home</a></div>
+        <div>
+            <a href="/api/CoJas" class="dropbtn" >API</i>
+            </a>
+            
+        </div>
+        <div>
+            <a href="/api/CoJas/random" class="dropbtn" >Random API</i>
+            </a>
+        </div>
+
+    </nav>
+    <div class="body" style="display: flex;justify-content: center;align-items: center;margin-top: 5px;">
+        <h1>There Are Only Some random pictures of CodyJasmine!</h1><br>
+    </div>
+    <div class="body" style="display: flex;justify-content: center;align-items: center;margin-top: 5px;">
+        <h4>It is made by <a href="https://www.facebook.com/Jesse.2212.07" style="font-size: 15px;color: white;">Me</a></h4>
+    </div>
+
+    <div class="img" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <img src="" style="width:100%">
+
+    </div>
+    <script>
+        fetch('http://localhost:8080/api/CoJas/random')
+        .then(res => {
+            return(res.json())
+        })
+        .then(data => {
+            console.log(data.image)
+          document.querySelector('img').setAttribute('src',data.image)
+        })
+        
+    </script>
+</body>
+</html>
